@@ -1,7 +1,12 @@
 body {
-  font-family: Optima, Candara, Calibri, Arial, sans-serif;
+  font-family: Optima, Candara, Calibri, Arial, "Noto Sans CJK JP", "Microsoft YaHei", "SimHei", sans-serif;
 }
-code {
-  font-family: "Lucida Console", Monaco, monospace;
-  font-size: 85%;
+pre, code {
+  font-family: "Noto Sans Mono", Monaco, monospace, Consolas, 'Courier New';
+}
+pre, code {
+  font-size: 0.85em;
+}
+pre > code {
+  font-size: 1em;  
 }

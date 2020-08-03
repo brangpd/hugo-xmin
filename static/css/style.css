@@ -1,3 +1,7 @@
+:root {
+  --block-color: #dfd
+}
+
 body {
   max-width: 800px;
   margin: auto;
@@ -9,34 +13,90 @@ body {
 .menu { padding: 0; }
 .menu li { display: inline-block; }
 .article-meta, .menu a {
-  text-decoration: none;
-  background: #eee;
+  /* text-decoration: none; */
+  background: var(--block-color);
   padding: 5px;
+  margin: 5px 0px;
   border-radius: 5px;
 }
 .menu, .article-meta, footer { text-align: center; }
-.title { font-size: 1.1em; }
-footer a { text-decoration: none; }
+.title { 
+  font-size: 1.5em;
+  /* margin: 8px; */
+}
+.subtitle {
+  font-size: 1.4em;
+  color: #666;
+  /* padding-top:7px */
+}
+/* .description {
+  margin: 8px;
+} */
+.previous-article {
+  float: left;
+}
+.next-article {
+  float: right;
+}
+.list-block {
+  padding: 15px 10px;
+  border-top: dotted medium gray;
+}
+.list-block:hover {
+  background-color: #f5f5f5;
+}
+.list-title-line {
+  font-weight: bold;
+}
+.list-title, .list-subtitle { 
+  font-size: 1.5em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+.list-subtitle {
+  color: #666; 
+}
+.list-summary {
+  border-radius: 5px;
+}
+.todo {
+  background-color: yellow;
+}
+a {
+  text-decoration: none;
+  color: #257025;
+}
+a:hover {
+  background-color: #eee;
+}
+main a:visited {
+  color: #666;
+}
 hr {
   border-style: dashed;
   color: #ddd;
 }
 
 /* code */
+/* The border would make the highlight.js' rendered result ugly. */
 pre {
-  border: 1px solid #ddd;
-  box-shadow: 5px 5px 5px #eee;
-  padding: 1em;
   overflow-x: auto;
+  line-height: 18px;
+  margin: 0;
 }
-code { background: #f9f9f9; }
-pre code { background: none; }
+code { 
+  background: var(--block-color);
+}
+pre code { background: initial; }
+blockquote pre code { 
+  white-space: pre-wrap;
+}
 
 /* misc elements */
 img, iframe, video { max-width: 100%; }
 main { hyphens: auto; }
 blockquote {
-  background: #f9f9f9;
+  background: var(--block-color);
   border-left: 5px solid #ccc;
   padding: 3px 1em 3px;
 }
@@ -48,4 +108,35 @@ table {
 }
 table thead th { border-bottom: 1px solid #ddd; }
 th, td { padding: 5px; }
-thead, tfoot, tr:nth-child(even) { background: #eee; }
+thead, tfoot, tr:nth-child(even) { background: var(--block-color); }
+
+main h1 {
+  background-color: #dfd;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 5px;
+}
+
+/*
+In CJK language, italic font style is not regular and very hard to feel its 'emphasis'.
+My posts are almost Chinese, so I apply the underline to emphasize text.
+Use meaningless <i> to produce italic text instead.
+*/
+em {
+  text-decoration: underline;
+  font-style: inherit;
+}
+/*
+Strong is rendered as bold text on default which is ambiguous and easily mistaken for headers.
+Use <b> to produce bold text instead.
+*/
+strong {
+  font-weight: inherit;
+  background-color: yellow;
+}
+
+#TableOfContents {
+  border-top: medium gray dotted;
+  border-bottom: medium gray dotted;
+  margin: 1em 0em;
+}

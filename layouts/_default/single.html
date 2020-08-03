@@ -1,12 +1,104 @@
 {{ partial "header.html" . }}
-<div class="article-meta">
-<h1><span class="title">{{ .Title | markdownify }}</span></h1>
-{{ with .Params.author }}<h2 class="author">{{ . }}</h2>{{ end }}
-{{ if (gt .Params.date 0) }}<h2 class="date">{{ .Date.Format "2006/01/02" }}</h2>{{ end }}
-</div>
 
-<main>
-{{ .Content }}
-</main>
+<article>
+  <header class="article-meta">
+    <section class="title">
+      {{ .Title | markdownify }}
+    </section>
+
+    {{ if .Params.subtitle }}
+    <section class="subtitle">——{{ .Params.subtitle | markdownify }}</section>
+    {{ end }}
+
+    {{ with .Params.author }}
+    <section class="author">{{ . }}</section>
+    {{ end }}
+
+    {{ if (gt .Params.date 0) }}
+    <section>创建:
+      <span class="date">
+        {{ .Date.Format .Site.Params.dateformat }}
+      </span>
+    </section>
+    {{ end }}
+
+    {{ if (gt .Params.lastmod 0) }}
+    <section>修改:
+      <span class="date">
+        {{ .Lastmod.Format .Site.Params.dateformat }}
+      </span>
+    </section>
+    {{ end }}
+
+    <section>
+      {{ if .Params.licence }}
+      {{ .Params.licence | markdownify }}
+      {{ else }}
+      <!-- CC BY-NC 4.0 by default -->
+      {{ "[CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/)" | markdownify }}
+      {{ end }}
+    </section>
+
+  </header>
+  <!-- <div>
+      <div class="previous-article">
+        {{ with .PrevInSection }}
+        更早：<a href="{{.Permalink}}">{{.Title}}</a>
+        {{ end }}
+      </div>
+      <div class="next-article">
+        {{ with .NextInSection }}
+        更晚：<a href="{{.Permalink}}">{{.Title}}</a>
+        {{ end }}
+      </div>
+    </div> 
+    <br> -->
+  <!-- <hr> -->
+  
+  {{ if ne (print .Params.Tags) "<nil>" }}
+  <section>标签:
+    {{ $first := 1 }}
+    {{ range .Params.Tags }}
+    {{ if not $first }}
+    |
+    {{ end }}
+    {{ $first = 0 }}
+    <a href="/tags/{{.}}">{{.}}</a>
+    {{ end }}
+  </section>
+  {{ end }}
+
+  {{ if ne (print .Params.Categories) "<nil>"}}
+  <section>归档:
+    {{ $first := 1 }}
+    {{ range .Params.Categories }}
+    {{ if not $first }}
+    |
+    {{ end }}
+    {{ $first = 0 }}
+    <a href="/categories/{{.}}">{{.}}</a>
+    {{ end }}
+  </section>
+  {{ end }}
+
+  <section class="description">
+    {{ .Description }}
+  </section>
+  <!-- Ignore empty table of contents. -->
+  {{ if ne (print .TableOfContents) "<nav id=\"TableOfContents\"></nav>" }}
+  <section>
+    {{ .TableOfContents }}
+  </section>
+  {{ end }}
+  <main>
+    {{ .Content }}
+  </main>
+</article>
+
+{{if .Params.closecomment}}
+<!-- 评论已关闭。 -->
+{{else}}
+{{partial "utterances.html" .}}
+{{end}}
 
 {{ partial "footer.html" . }}
