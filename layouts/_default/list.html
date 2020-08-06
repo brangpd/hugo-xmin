@@ -19,14 +19,16 @@
 {{ if .IsHome }}
 {{ $pages = .Site.RegularPages }}
 {{ end }}
-{{ range (where $pages "Section" "!=" "") }}
+
+{{ $paginator := .Paginate (where $pages "Section" "!=" "") }}
+{{ range $paginator.Pages }}
 <section class="list-block">
   <div class="list-title-line">
     <div style="float: right;">
       ({{ .Lastmod.Format .Site.Params.dateformat }})
     </div>
     <div>
-      <a href="{{ .RelPermalink }}" style="text-decoration: inherit; color:inherit;">
+      <a href="{{ .RelPermalink }}">
         <span class="list-title">{{ .Title }}</span>
         {{ if .Params.Subtitle }}
         <span class="list-subtitle">——{{ .Params.Subtitle }}</span>
@@ -45,5 +47,6 @@
 <!-- <hr> -->
 {{ end }}
 
+{{ template "_internal/pagination.html" . }}
 
 {{ partial "footer.html" . }}

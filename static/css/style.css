@@ -59,17 +59,22 @@ body {
 .list-summary {
   border-radius: 5px;
 }
-.todo {
-  background-color: yellow;
-}
 a {
   text-decoration: none;
   color: #257025;
 }
+main a {
+  text-decoration: underline;
+  text-decoration-style: dashed;
+}
 a:hover {
   background-color: #eee;
 }
-main a:visited {
+p a:hover {
+  background-color: #eee;
+  text-decoration: underline;
+}
+p a:visited {
   color: #666;
 }
 hr {
@@ -78,18 +83,43 @@ hr {
 }
 
 /* code */
-/* The border would make the highlight.js' rendered result ugly. */
+/* The border would make the highlight rendered result ugly. */
+.highlight {
+  margin: 5px 0px;
+}
 pre {
   overflow-x: auto;
-  line-height: 18px;
-  margin: 0;
+  line-height: 20px;
 }
 code { 
   background: var(--block-color);
+  margin: 5px;
 }
-pre code { background: initial; }
-blockquote pre code { 
+pre, code {
+  font-size: 0.85em;
+}
+pre code {
+  background: initial;
+  font-size: 1em;  
+  margin: initial;
+}
+samp {
   white-space: pre-wrap;
+}
+
+/* pagination */
+.pagination { 
+  text-align: center;
+  padding-inline-start: 0;
+  /* margin-block-start: 0; */
+}
+.pagination li { display: inline; }
+.pagination a { padding: 0 .2em; }
+.pagination .page-item.disabled a {
+  color: unset;
+}
+.pagination .page-item.active a {
+  background-color: #ddd;
 }
 
 /* misc elements */
@@ -139,4 +169,15 @@ strong {
   border-top: medium gray dotted;
   border-bottom: medium gray dotted;
   margin: 1em 0em;
+}
+
+article .header-anchor span {
+  /* float: left;
+  padding-right: 4px;
+  line-height: 1;
+  margin-left: -20px; */
+  visibility: hidden !important;
+}
+article .header-anchor:hover span {
+  visibility: visible !important;
 }

@@ -1,6 +1,7 @@
 <!-- Since v0.71.0 -->
-<!-- <a href="#{{ .Anchor | safeURL }}" style="text-decoration: inherit; color: inherit;"> -->
-  <h{{ .Level }} id="{{ .Anchor | safeURL }}">
-    {{ .Text | safeHTML }}
-  </h{{ .Level }}>
-<!-- </a> -->
+
+<h{{ .Level }} id="{{ .Anchor | safeURL }}">{{ .Text | safeHTML }}
+  <a href="#{{ .Anchor | safeURL }}" class="header-anchor">
+    <span style="visibility: hidden;">¶</span>
+  </a>
+</h{{ .Level }}>
