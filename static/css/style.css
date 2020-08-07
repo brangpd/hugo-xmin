@@ -153,7 +153,7 @@ My posts are almost Chinese, so I apply the underline to emphasize text.
 Use meaningless <i> to produce italic text instead.
 */
 em {
-  text-decoration: underline;
+  text-decoration: underline double red;
   font-style: inherit;
 }
 /*

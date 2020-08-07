@@ -82,7 +82,7 @@
   {{ end }}
 
   <section class="description">
-    {{ .Description }}
+    {{ .Description | markdownify }}
   </section>
   <!-- Ignore empty table of contents. -->
   {{ if ne (print .TableOfContents) "<nav id=\"TableOfContents\"></nav>" }}
