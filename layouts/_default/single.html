@@ -63,7 +63,8 @@
     |
     {{ end }}
     {{ $first = 0 }}
-    <a href="/tags/{{.}}">{{.}}</a>
+    {{ $href := ((printf "/tags/%s" .) | relURL) }}
+    <a href="{{$href}}">{{.}}</a>
     {{ end }}
   </section>
   {{ end }}
@@ -76,7 +77,8 @@
     |
     {{ end }}
     {{ $first = 0 }}
-    <a href="/categories/{{.}}">{{.}}</a>
+    {{ $href := ((printf "/categories/%s" .) | relURL) }}
+    <a href="{{$href}}">{{.}}</a>
     {{ end }}
   </section>
   {{ end }}

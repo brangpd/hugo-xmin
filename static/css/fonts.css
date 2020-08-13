@@ -1,5 +1,8 @@
 body {
-  font-family: Optima, Candara, Calibri, Arial, "Noto Sans CJK SC", "Microsoft YaHei", "SimHei", sans-serif;
+  font-family: Optima, Candara, Calibri, Arial, "Noto Sans CJK SC", "Noto Sans SC", "Microsoft YaHei", "SimHei", sans-serif;
+}
+[lang="ja"] {
+  font-family: Optima, Candara, Calibri, Arial, "Noto Sans CJK JP", "Noto Sans JP", "Yu Gothic", "Meiryo", "MS Gothic", sans-serif;
 }
 pre, code {
   font-family: 'Dejavu Sans Mono', Monaco, Consolas, 'Courier New', monospace;

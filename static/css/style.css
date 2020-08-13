@@ -137,8 +137,8 @@ table {
   border-bottom: 1px solid #666;
 }
 table thead th { border-bottom: 1px solid #ddd; }
-th, td { padding: 5px; }
-thead, tfoot, tr:nth-child(even) { background: var(--block-color); }
+/* th, td { padding: 5px; } */
+/* thead, tfoot, tr:nth-child(even) { background: var(--block-color); } */
 
 main h1 {
   background-color: #dfd;
