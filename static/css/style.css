@@ -132,12 +132,17 @@ blockquote {
 }
 
 table {
-  margin: auto;
-  border-top: 1px solid #666;
-  border-bottom: 1px solid #666;
+  /* margin: auto; */
+  /* border-top: 1px solid; */
+  /* border-bottom: 1px solid #666; */
+  margin: 10px 0;
+  border-collapse: collapse;
 }
-table thead th { border-bottom: 1px solid #ddd; }
-/* th, td { padding: 5px; } */
+/* table thead th { border-bottom: 1px solid #ddd; } */
+th, td { 
+  padding: 0px 10px;
+  border-bottom: 1px solid #ddd;
+}
 /* thead, tfoot, tr:nth-child(even) { background: var(--block-color); } */
 
 main h1 {
@@ -153,7 +158,7 @@ My posts are almost Chinese, so I apply the underline to emphasize text.
 Use meaningless <i> to produce italic text instead.
 */
 em {
-  text-decoration: underline double red;
+  text-decoration: solid underline red;
   font-style: inherit;
 }
 /*
@@ -162,13 +167,30 @@ Use <b> to produce bold text instead.
 */
 strong {
   font-weight: inherit;
-  background-color: yellow;
+  background-color: aquamarine;
 }
 
 #TableOfContents {
   border-top: medium gray dotted;
   border-bottom: medium gray dotted;
   margin: 1em 0em;
+}
+#toTopButton {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: gray;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+#toTopButton:hover {
+  background-color: #555;
 }
 
 article .header-anchor span {
