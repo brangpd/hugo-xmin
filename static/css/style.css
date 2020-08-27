@@ -154,43 +154,28 @@ main h1 {
 
 /*
 In CJK language, italic font style is not regular and very hard to feel its 'emphasis'.
-My posts are almost Chinese, so I apply the underline to emphasize text.
+My posts are almost Chinese, so I apply the color to emphasize text.
+(Underline is not rendered in iPad, why?)
 Use meaningless <i> to produce italic text instead.
 */
 em {
-  text-decoration: solid underline red;
-  font-style: inherit;
+  /* text-decoration: solid underline red !important; */
+  color: chocolate;
+  font-style: inherit !important;
 }
 /*
 Strong is rendered as bold text on default which is ambiguous and easily mistaken for headers.
 Use <b> to produce bold text instead.
 */
 strong {
-  font-weight: inherit;
-  background-color: aquamarine;
+  font-weight: unset !important;
+  background-color: aquamarine !important;
 }
 
 #TableOfContents {
   border-top: medium gray dotted;
   border-bottom: medium gray dotted;
   margin: 1em 0em;
-}
-#toTopButton {
-  display: none;
-  position: fixed;
-  bottom: 20px;
-  right: 30px;
-  z-index: 99;
-  font-size: 18px;
-  border: none;
-  outline: none;
-  background-color: gray;
-  color: white;
-  cursor: pointer;
-  border-radius: 5px;
-}
-#toTopButton:hover {
-  background-color: #555;
 }
 
 article .header-anchor span {
