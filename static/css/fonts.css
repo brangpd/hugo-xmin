@@ -1,9 +1,25 @@
-body {
-  font-family: Arial, "Noto Sans CJK SC", "Noto Sans SC", "Microsoft YaHei", "SimHei", sans-serif;
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans');
+
+@import url(//fonts.googleapis.com/earlyaccess/notosanssc.css);
+@import url(//fonts.googleapis.com/earlyaccess/notosansjp.css);
+
+[lang="zh-Hans"] {
+  font-family: 'Noto Sans CJK SC', 'Noto Sans SC', 
+   /* "Noto Sans CJK SC", "PingFang SC", "Heiti SC", "Microsoft YaHei", "SimHei",  */
+   sans-serif;
 }
 [lang="ja"] {
-  font-family: Arial, "Noto Sans CJK JP", "Noto Sans JP", "Yu Gothic", "Meiryo", "MS Gothic", sans-serif;
+  font-family: 'Noto Sans CJK JP', 'Noto Sans JP', 
+   /* "Hiragino Sans", "Hiragino Kaku Gothic Pro", Osaka, "Yu Gothic", "Meiryo", "MS Gothic",  */
+  sans-serif;
+}
+/* In case that we use Chinese characters in latex expressions. */
+[lang="zh-Hans"] .cjk_fallback {
+  font-family: 'Noto Sans CJK SC', 'Noto Sans SC', sans-serif;
+}
+[lang="ja"] .cjk_fallback {
+  font-family: 'Noto Sans CJK JP', 'Noto Sans JP', sans-serif;
 }
 pre, code {
-  font-family: 'Dejavu Sans Mono', Monaco, Consolas, 'Courier New', monospace;
+  font-family: 'Dejavu Sans Mono', Monaco, Ubuntu, Consolas, 'Courier New', monospace;
 }

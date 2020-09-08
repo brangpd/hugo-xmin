@@ -122,13 +122,25 @@ samp {
   background-color: #ddd;
 }
 
+.katex {
+  font-size: 1em !important;
+}
+.katex .base {
+  /* overflow-wrap: normal !important; */
+  white-space: normal !important;
+  /* display: block !important; */
+  width: auto !important;
+}
+
 /* misc elements */
 img, iframe, video { max-width: 100%; }
 main { hyphens: auto; }
 blockquote {
   background: var(--block-color);
   border-left: 5px solid #ccc;
-  padding: 3px 1em 3px;
+  /* padding: 0.5% 1% 0.5%; */
+  /* border: 1%; */
+  /* margin: 10px; */
 }
 
 table {
@@ -160,7 +172,7 @@ Use meaningless <i> to produce italic text instead.
 */
 em {
   /* text-decoration: solid underline red !important; */
-  color: chocolate;
+  color: orangered;
   font-style: inherit !important;
 }
 /*
@@ -170,6 +182,9 @@ Use <b> to produce bold text instead.
 strong {
   font-weight: unset !important;
   background-color: aquamarine !important;
+}
+del {
+  text-decoration: line-through double;
 }
 
 #TableOfContents {
