@@ -54,3 +54,36 @@ document.addEventListener("DOMContentLoaded", function () {
     pre_node.parentNode.replaceChild(span_elem, pre_node);
   }
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  // see bilibili.html
+  function av2bv(av) {
+    var table = 'fZodR9XQDSUm21yCkr6zBqiveYah8bt4xsWpHnJE7jL5VG3guMTKNPAwcF'
+    var tr = {}
+    for (let i = 0; i < 58; i++) {
+      tr[table[i]] = i
+    }
+    var s = [11, 10, 3, 8, 4, 6]
+    var xor = 177451812
+    var add = 8728348608
+    return (function (x) {
+      x = parseInt(x)
+      x = (x ^ xor) + add
+      var r = Array.from('BV1  4 1 7  ')
+      for (let i = 0; i < 6; i++) {
+        r[s[i]] = table[Math.floor(x / Math.pow(58, i)) % 58]
+      }
+      return r.join('')
+    })(av)
+  }
+  var as = document.getElementsByClassName('bilibili-a')
+  for (let index = 0; index < as.length; index++) {
+    var element = as[index];
+    var aid = element.getAttribute('id').substr(2)
+    var bvid = av2bv(aid)
+    var src = element.getAttribute('asrc')
+    src = src.replace(/aid=.+?&/, 'bvid=' + bvid + '&')
+    element.setAttribute('src', src)
+    element.reload(true)
+  }
+});

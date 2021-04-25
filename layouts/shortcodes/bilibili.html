@@ -1,0 +1,40 @@
+<style>
+  .bilibili, .bilibili-a {
+    width: 100%;
+    height: 550px;
+  }
+  @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    .bilibili, .bilibili-a {
+      width: 100%;
+      height: 250px;
+    }
+  }
+</style>
+
+{{ $videoID := "" }}
+{{ $pageNum := 0 }}
+{{ $description := "" }}
+{{ $idprefix := "" }}
+
+{{ if .IsNamedParams }}
+{{ $videoID = .Get "i" }}
+{{ $pageNum = .Get "p" }}
+{{ $description = .Get "desc" }}
+{{ else }}
+{{ $videoID = .Get 0 }} 
+{{ $pageNum = .Get 1 }}
+{{ end }}
+
+<details>
+  <summary>bilibili: <a href="https://www.bilibili.com/video/{{$videoID}}?p={{$pageNum}}">{{$videoID}}{{ if $pageNum }}/p{{ $pageNum }}{{ end }}</a>{{ if $description }} - {{ $description | markdownify }}{{ end }}</summary>
+
+  {{ if (findRE "^[bB][vV][0-9a-zA-Z]+$" $videoID) }}
+  <div><iframe class="bilibili" id="{{$videoID}}/{{$pageNum}}" src="//player.bilibili.com/player.html?bvid={{ $videoID }}&as_wide=1&high_quality=1&danmaku=0&page={{ $pageNum }}" scrolling="no" frameborder="no" framespacing="0" allowfullscreen="true" loading="lazy"> </iframe></div>
+  {{ else }}
+  <div>
+    <!-- Change av to bv, see custom.js -->
+    <iframe class="bilibili-a" id="{{$videoID}}/{{$pageNum}}" asrc="//player.bilibili.com/player.html?aid={{ $videoID }}&as_wide=1&high_quality=1&danmaku=0&page={{ $pageNum }}" scrolling="no" frameborder="no" framespacing="0" allowfullscreen="true" loading="lazy"> </iframe>
+  </div>
+  {{ end }}
+</details>
+

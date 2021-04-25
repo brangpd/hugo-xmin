@@ -2,7 +2,7 @@
 
 {{ $h0title := "" }}
 {{ if eq .Kind "term" }}
-{{ $h0title = .Title }}
+{{ $h0title = .Title | markdownify }}
 {{ else if not .IsHome }}
 {{ range (where .Site.Menus.main "Identifier" .Section ) }}
 {{ $h0title = .Name }}
@@ -17,7 +17,7 @@
 
 {{ $pages := .Pages }}
 {{ if .IsHome }}
-{{ $pages = .Site.RegularPages }}
+{{ $pages = .Site.RegularPages.ByLastmod.Reverse }}
 {{ end }}
 
 {{ $paginator := .Paginate (where $pages "Section" "!=" "") }}
@@ -29,9 +29,9 @@
     </div>
     <div>
       <a href="{{ .RelPermalink }}">
-        <span class="list-title">{{ .Title }}</span>
+        <span class="list-title">{{ .Title | markdownify }}</span>
         {{ if .Params.Subtitle }}
-        <span class="list-subtitle">——{{ .Params.Subtitle }}</span>
+        <span class="list-subtitle">——{{ .Params.Subtitle | markdownify }}</span>
         {{ end }}
       </a>
     </div>
