@@ -79,11 +79,13 @@ document.addEventListener("DOMContentLoaded", function () {
   var as = document.getElementsByClassName('bilibili-a')
   for (let index = 0; index < as.length; index++) {
     var element = as[index];
-    var aid = element.getAttribute('id').substr(2)
+    var aid = element.getAttribute('aid').substr(2)
     var bvid = av2bv(aid)
     var src = element.getAttribute('asrc')
     src = src.replace(/aid=.+?&/, 'bvid=' + bvid + '&')
     element.setAttribute('src', src)
-    element.reload(true)
+  }
+  for (let index = 0; index < as.length; index++) {
+    element.reload()
   }
 });
