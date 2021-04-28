@@ -17,7 +17,7 @@
     {{ if (gt .Params.date 0) }}
     <section>创建:
       <span class="date">
-        {{ .Date.Format .Site.Params.dateformat }}
+        {{ .PublishDate.Format .Site.Params.dateformat }}
       </span>
     </section>
     {{ end }}
@@ -31,11 +31,13 @@
     {{ end }}
 
     <section>
+      {{ if not (eq .Params.licence nil) }}
       {{ if .Params.licence }}
       {{ .Params.licence | markdownify }}
+      {{ end }}
       {{ else }}
-      <!-- CC BY-NC 4.0 by default -->
-      {{ "[CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/)" | markdownify }}
+      <!-- CC BY-NC-SA 4.0 by default -->
+      {{ "[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)" | markdownify }}
       {{ end }}
     </section>
 
@@ -54,8 +56,8 @@
     </div> 
     <br> -->
   <!-- <hr> -->
-  
-  {{ if ne (print .Params.Tags) "<nil>" }}
+
+  {{ if (.Params.Tags) }}
   <section>标签:
     {{ $first := 1 }}
     {{ range .Params.Tags }}
@@ -69,7 +71,7 @@
   </section>
   {{ end }}
 
-  {{ if ne (print .Params.Categories) "<nil>"}}
+  {{ if (.Params.Categories)}}
   <section>归档:
     {{ $first := 1 }}
     {{ range .Params.Categories }}

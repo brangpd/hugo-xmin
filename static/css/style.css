@@ -20,9 +20,9 @@
     --body-background-color: #222222;
     --body-color: #eeeeee;
     --a-color: #7ce426;
-    --a-visited-color: #777777;
+    --a-visited-color: #222222;
     --main-h1-background-color: #303530;
-    --strong-background-color: #5cb3a7;
+    --strong-background-color: #84ffef;
     --strong-color: #000000;
   }
 }
@@ -226,4 +226,9 @@ article .header-anchor {
 }
 article .header-anchor:hover span {
   visibility: visible !important;
+}
+
+summary {
+  color: var(--a-color);
+  cursor: pointer;
 }

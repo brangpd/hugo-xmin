@@ -1,0 +1,49 @@
+{{ partial "header.html" . }}
+
+{{ $h0title := .Title }}
+<h1 class="h0">{{$h0title}}</h1>
+
+{{ $pages := .Scratch.Get "listpages" }}
+{{ $desc := .Scratch.Get "listpagesdesc" | default "" }}
+{{ if $desc }}
+<section class="list-description">
+  <div class="list-summary">
+    {{$desc}}
+  </div>
+</section>
+{{ end }}
+
+{{ $paginator := .Paginate (where $pages "Section" "!=" "") }}
+{{ range $paginator.Pages }}
+<section class="list-block">
+  <div class="list-title-line">
+    <div style="float: right;">
+      ({{ .Date.Format .Site.Params.dateformat }})
+    </div>
+    <div>
+      <a href="{{ .RelPermalink }}">
+        <span class="list-title">{{ .Title | markdownify }}</span>
+        {{ if .Params.Subtitle }}
+        <span class="list-subtitle">——{{ .Params.Subtitle | markdownify }}</span>
+        {{ end }}
+      </a>
+    </div>
+  </div>
+  {{ if not (isset .Params "nodescription") }}
+  <div class="list-summary">
+    {{ $summary := "" }}
+    {{ if .Params.Description }}
+    {{ $summary = .Params.Description }}
+    {{ else if .Summary }}
+    {{ $summary = .Summary }}
+    {{ end }}
+    {{ if $summary }}{{ $summary | markdownify }}{{ end }}
+  </div>
+  {{ end }}
+</section>
+<!-- <hr> -->
+{{ end }}
+
+{{ template "_internal/pagination.html" . }}
+
+{{ partial "footer.html" . }}

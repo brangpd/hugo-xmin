@@ -1,0 +1,3 @@
+{{ .Scratch.Set "listpages" .Pages.ByLastmod.Reverse }}
+{{ .Scratch.Set "listpagesdesc" (.Params.Description | default "" | markdownify) }}
+{{ partial "listpages.html" . }}
