@@ -1,14 +1,16 @@
 :root {
-  --block-color: #ddffdd;
+  --block-color: #ddfff2;
   --list-block-hover-color: #f5f5f5;
   --a-hover-background-color: #eeeeee;
   --body-background-color: #ffffff;
   --body-color: #000000;
-  --a-color: #257025;
+  --a-color: #1e6460;
   --a-visited-color: #444444;
   --main-h1-background-color: #ddffdd;
-  --strong-background-color: #80ffef;
+  --strong-background-color: #76ffa2;
   --strong-color: #000000;
+  --em-color: orangered;
+  --code-font-size: 90%;
 }
 
 /* Define colours for dark mode */
@@ -16,14 +18,15 @@
   :root {
     --block-color: #303530;
     --list-block-hover-color:#303530;
-    --a-hover-background-color: #666666;
+    --a-hover-background-color: #555555;
     --body-background-color: #222222;
     --body-color: #eeeeee;
-    --a-color: #7ce426;
-    --a-visited-color: #222222;
+    --a-color: #3eff88;
+    --a-visited-color: #999999;
     --main-h1-background-color: #303530;
-    --strong-background-color: #84ffef;
+    --strong-background-color: #ffffff;
     --strong-color: #000000;
+    --em-color: orange;
   }
 }
 
@@ -88,7 +91,7 @@ body {
 }
 a {
   text-decoration: none;
-  color: var(--a-color);
+  color: var(--a-color) !important;
 }
 main a {
   text-decoration: underline;
@@ -97,16 +100,12 @@ main a {
 a:hover {
   background-color: var(--a-hover-background-color);
 }
-p a:hover {
-  background-color: #eee;
-  text-decoration: underline;
-}
-p a:visited {
+main a:visited {
   color: var(--a-visited-color);
 }
 hr {
   border-style: dashed;
-  color: #ddd;
+  color: #999999;
 }
 
 /* code */
@@ -123,15 +122,16 @@ code {
   margin: 5px;
 }
 pre, code {
-  font-size: 0.85em;
+  font-size: var(--code-font-size);
 }
 pre code {
   background: initial;
-  font-size: 1em;  
+  font-size: var(--code-font-size);  
   margin: initial;
 }
 samp {
   white-space: pre-wrap;
+  font-size: var(--code-font-size);
 }
 
 /* pagination */
@@ -171,16 +171,16 @@ blockquote {
 }
 
 table {
-  /* margin: auto; */
+  margin: auto;
   /* border-top: 1px solid; */
   /* border-bottom: 1px solid #666; */
-  margin: 10px 0;
+  /* margin: 10px 0; */
   border-collapse: collapse;
 }
 /* table thead th { border-bottom: 1px solid #ddd; } */
 th, td { 
-  padding: 0px 10px;
-  border-bottom: 1px solid #ddd;
+  /* padding: 0px 10px; */
+  /* border-bottom: 1px solid #ddd; */
 }
 /* thead, tfoot, tr:nth-child(even) { background: var(--block-color); } */
 
@@ -199,7 +199,7 @@ Use meaningless <i> to produce italic text instead.
 */
 em {
   /* text-decoration: solid underline red !important; */
-  color: orangered;
+  color: var(--em-color);
   font-style: inherit !important;
 }
 /*

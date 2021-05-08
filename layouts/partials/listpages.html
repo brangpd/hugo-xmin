@@ -5,14 +5,7 @@
 
 {{ $pages := .Scratch.Get "listpages" }}
 {{ $desc := .Scratch.Get "listpagesdesc" | default "" }}
-{{ if $desc }}
-<section class="list-description">
-  <div class="list-summary">
-    {{$desc}}
-  </div>
-</section>
-{{ end }}
-
+{{.Content}}
 {{ $paginator := .Paginate (where $pages "Section" "!=" "") }}
 {{ range $paginator.Pages }}
 <section class="list-block">

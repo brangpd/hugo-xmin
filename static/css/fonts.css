@@ -1,12 +1,16 @@
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans');
 
 @import url(//fonts.googleapis.com/earlyaccess/notosanssc.css);
+@import url(//fonts.googleapis.com/earlyaccess/notosanstc.css);
 @import url(//fonts.googleapis.com/earlyaccess/notosansjp.css);
 
 [lang="zh-Hans"] {
   font-family: 'Noto Sans', 'Noto Sans CJK SC', 'Noto Sans SC', 
    /* "Noto Sans CJK SC", "PingFang SC", "Heiti SC", "Microsoft YaHei", "SimHei",  */
    sans-serif;
+}
+[lang="zh-Hant"] {
+  font-family: 'Noto Sans', 'Noto Sans CJK TC', 'Noto Sans TC';
 }
 [lang="ja"] {
   font-family: 'Noto Sans', 'Noto Sans CJK JP', 'Noto Sans JP', 

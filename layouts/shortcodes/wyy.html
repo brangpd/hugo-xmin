@@ -1,0 +1,7 @@
+{{ $ID := .Get 0 }}
+{{ $desc := .Get 1 | default "" }}
+
+<!-- <details> -->
+  <!-- <summary>网易云：{{$desc | markdownify}}</summary> -->
+  <iframe class="wyy" frameborder="no" marginwidth="0" marginheight="0" width=520 height=52 src="https://music.163.com/outchain/player?type=2&id={{ $ID }}&auto=0&height=32" loading="lazy"></iframe>
+<!-- </details> -->

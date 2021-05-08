@@ -1,14 +1,14 @@
 // Change the o language (output) pre code to samp
 document.addEventListener("DOMContentLoaded", function () {
-  lang_pre_code_o = document.querySelectorAll('[class="language-o"]');
+  var lang_pre_code_o = document.querySelectorAll('[class="language-o"]');
   for (let i = 0; i < lang_pre_code_o.length; ++i) {
-    code_elem = lang_pre_code_o[i];
-    code_text = code_elem.innerText;
-    samp_elem = document.createElement('samp');
+    var code_elem = lang_pre_code_o[i];
+    var code_text = code_elem.innerText;
+    var samp_elem = document.createElement('samp');
     samp_elem.innerText = code_text;
-    blockquote_elem = document.createElement('blockquote');
+    var blockquote_elem = document.createElement('blockquote');
     blockquote_elem.innerHTML = samp_elem.outerHTML;
-    pre_node = code_elem.parentNode;
+    var pre_node = code_elem.parentNode;
     pre_node.parentNode.replaceChild(blockquote_elem, pre_node);
   }
 });
@@ -28,11 +28,11 @@ document.addEventListener("DOMContentLoaded", function () {
 // Change the math language pre code to tex rendered
 document.addEventListener("DOMContentLoaded", function () {
   // method 1: use <span class=math>
-  math_spans = document.querySelectorAll('[class="math"]');
+  var math_spans = document.querySelectorAll('[class="math"]');
   for (let i = 0; i < math_spans.length; ++i) {
-    span_elem = math_spans[i];
-    math_text = span_elem.innerText;
-    new_span_elem = document.createElement('span');
+    var span_elem = math_spans[i];
+    var math_text = span_elem.innerText;
+    var new_span_elem = document.createElement('span');
     new_span_elem.innerText = math_text;
     katex.render(math_text, new_span_elem, {
       throwOnError: false
@@ -44,16 +44,49 @@ document.addEventListener("DOMContentLoaded", function () {
   // method 2: use ```math
   lang_pre_code_math = document.querySelectorAll('[class="language-math"]');
   for (let i = 0; i < lang_pre_code_math.length; ++i) {
-    code_elem = lang_pre_code_math[i];
-    code_text = code_elem.innerText;
-    span_elem = document.createElement('span');
+    var code_elem = lang_pre_code_math[i];
+    var code_text = code_elem.innerText;
+    var span_elem = document.createElement('span');
     katex.render(code_text, span_elem, {
       throwOnError: false
     });
-    pre_node = code_elem.parentNode;
+    var pre_node = code_elem.parentNode;
     pre_node.parentNode.replaceChild(span_elem, pre_node);
   }
 });
+
+// Render ABC JS music notation
+document.addEventListener('DOMContentLoaded', function () {
+  var lang_pre_code_abcjs = document.querySelectorAll('[class="language-abcjs"]')
+  for (let i = 0; i < lang_pre_code_abcjs.length; ++i) {
+    var elem = lang_pre_code_abcjs[i]
+    var text = elem.innerText
+    var div_elem = document.createElement('div')
+    var obj = ABCJS.renderAbc(div_elem, text, {
+      viewportHorizontal: true,
+      scrollHorizontal: true,
+      minSpacing: 1.8, maxSpacing: 2.7, preferredMeasuresPerLine: 4,
+      // responsive: "resize"
+    })
+    div_elem.firstChild.style['overflow-x'] = 'visible'
+    var pre_node = elem.parentNode
+    pre_node.parentNode.replaceChild(div_elem, pre_node)
+
+    var audioObj = document.createElement('div')
+    var random_id = 'i' + Date.now()
+    audioObj.id = random_id
+    div_elem.appendChild(audioObj)
+    var synthControl = new ABCJS.synth.SynthController()
+    synthControl.load('#' + random_id, null, {
+      displayLoop: true,
+      displayRestart: true,
+      displayPlay: true,
+      displayProgress: true,
+      displayWarp: true
+    })
+    synthControl.setTune(obj[0], false)
+  }
+})
 
 document.addEventListener("DOMContentLoaded", function () {
   // see bilibili.html
