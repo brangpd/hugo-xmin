@@ -79,8 +79,7 @@
     |
     {{ end }}
     {{ $first = 0 }}
-    {{ $href := ((printf "/categories/%s" .) | relURL) }}
-    <a href="{{$href}}">{{.}}</a>
+    <a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}">{{.}}</a>
     {{ end }}
   </section>
   {{ end }}
