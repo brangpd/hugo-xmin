@@ -65,8 +65,7 @@
     |
     {{ end }}
     {{ $first = 0 }}
-    {{ $href := ((printf "/tags/%s" .) | relURL) }}
-    <a href="{{$href}}">{{.}}</a>
+    <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{.}}</a>
     {{ end }}
   </section>
   {{ end }}
