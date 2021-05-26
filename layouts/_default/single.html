@@ -40,7 +40,7 @@
       {{ "[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)" | markdownify }}
       {{ end }}
       |
-      <a href="{{index .Aliases 0}}">PID/{{.Params.Id}}</a>
+      <a href="{{(index .Aliases 0) | relURL}}">PID/{{.Params.Id}}</a>
       <!-- I decided not to share the source. -->
       <!-- | -->
       <!-- <a href="{{.Site.Params.ForkMe}}/{{.File.Path}}" target="_blank">FORKME</a> -->
