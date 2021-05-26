@@ -6,7 +6,8 @@
 <ul class="terms">
   {{ range .Data.Terms }}
   <li>
-    <a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a> ({{ .Count }})
+    <!-- HACK: Hugo does not support the character # to be escaped. -->
+    <a href="{{ replace .Page.RelPermalink "#" "%23" }}">{{ .Page.Title }}</a> ({{ .Count }})
   </li>
   {{ end }}
 </ul>

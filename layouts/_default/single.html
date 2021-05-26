@@ -70,7 +70,8 @@
     |
     {{ end }}
     {{ $first = 0 }}
-    <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{.}}</a>
+    <!-- HACK: Hugo does not support the character # to be escaped. -->
+    <a href="{{ "/tags/" | relLangURL }}{{ (replace . "#" "%23") | urlize }}/">{{.}}</a>
     {{ end }}
   </section>
   {{ end }}
@@ -108,4 +109,5 @@
 {{partial "beaudar.html" .}}
 {{end}}
 
+{{ partial "katex.html" . }}
 {{ partial "footer.html" . }}
