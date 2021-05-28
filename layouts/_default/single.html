@@ -14,18 +14,16 @@
     <section class="author">{{ . }}</section>
     {{ end }}
 
-    {{ if (gt .Params.date 0) }}
     <section>创建:
       <span class="date">
-        {{ .PublishDate.Format .Site.Params.dateformat }}
+        {{ .Page.PublishDate.Format .Site.Params.dateformat }}
       </span>
     </section>
-    {{ end }}
 
-    {{ if (gt .Params.lastmod 0) }}
+    {{ if .GitInfo }}
     <section>修改:
       <span class="date">
-        {{ .Lastmod.Format .Site.Params.dateformat }}
+        {{ .Page.Lastmod.Format .Site.Params.dateformat }}
       </span>
     </section>
     {{ end }}
