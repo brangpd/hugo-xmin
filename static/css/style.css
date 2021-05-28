@@ -233,6 +233,11 @@ summary {
   cursor: pointer;
 }
 
+audio {
+  width: 100%;
+  height: 30px;
+}
+
 .bilibili, .bilibili-a {
   width: 100%;
   height: 550px;
