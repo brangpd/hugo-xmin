@@ -1,4 +1,9 @@
 {{ $ID := .Get 0 }}
 {{ $desc := .Get 1 | default "" }}
 
-<audio controls preload="none"><source src="http://music.163.com/song/media/outer/url?id={{ $ID }}.mp3" type="audio/mpeg" /></audio>（网易云：<a href="https://music.163.com/#/song?id={{ $ID }}">{{$ID}}</a>）
+<div>
+  <audio controls preload="none"><source src="http://music.163.com/song/media/outer/url?id={{ $ID }}.mp3" type="audio/mpeg" /></audio>
+</div>
+<div>
+  （网易云：<a href="https://music.163.com/#/song?id={{ $ID }}" target="_blank">{{$ID}}</a>）
+</div>
