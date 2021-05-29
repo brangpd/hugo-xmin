@@ -1,0 +1,30 @@
+# 本文件将复制到public/.github/workflows目录下，并提交到blog仓库。
+# 在blog仓库push时触发部署到Github Page，并且同步部署到Gitee Page。
+name: Deploy Github Page & Gitee Page
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Sync to Gitee
+        uses: wearerequired/git-mirror-action@v1
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_RSA_PRIVATE }}
+        with:
+          source-repo: git@github.com:brangpd/blog.git
+          destination-repo: git@gitee.com:brangpd/blog.git
+
+      - name: Build Gitee Pages
+        uses: yanglbme/gitee-pages-action@main
+        with:
+          gitee-username: brangpd
+          gitee-password: ${{ secrets.GITEE_PASSWORD }}
+          gitee-repo: brangpd/blog
+          branch: master
