@@ -1,11 +1,52 @@
-baseurl = "/"
-languageCode = "en-us"
-title = "A minimal Hugo website"
-theme = "hugo-xmin"
+baseurl = "/blog"
+languageCode = "zh-Hans"
+title = "花落无声的站点"
+theme = "hugo-xmin-brangpd"
+enableGitInfo = true
+
 googleAnalytics = ""
 disqusShortname = ""
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
-footnotereturnlinkcontents = "↩"
+footnotereturnlinkcontents = "↑"
+paginate = 10
+enableEmoji = true
+hasCJKLanguage = true
+summaryLength = 100
+pygmentsUseClasses = true
+
+[permalinks]
+    posts = "/posts/:year/:month/:day/:slug/"
+
+[[menu.main]]
+    name = "主页"
+    url = "/"
+    weight = 1
+    identifier = "home"
+[[menu.main]]
+    name = "近期"
+    url = "/p/"
+    weight = 2
+    identifier = "posts"
+[[menu.main]]
+    name = "全部"
+    url = "/pall/"
+    weight = 3
+    identifier = "all_posts"
+[[menu.main]]
+    name = "归档"
+    url = "/categories/"
+    weight = 4
+    identifier = "categories"
+[[menu.main]]
+    name = "标签"
+    url = "/tags/"
+    weight = 5
+    identifier = "tags"
+[[menu.main]]
+    name = "订阅"
+    url = "/index.xml"
+    weight = 6
+    identifier = "subcribe"
 
 [permalinks]
     post = "/post/:year/:month/:day/:slug/"
@@ -32,10 +73,24 @@ footnotereturnlinkcontents = "↩"
     url = "/index.xml"
 
 [params]
-    description = "A website built through Hugo and blogdown."
-    footer = "&copy; [Yihui Xie](https://yihui.name) 2017 -- 2019 | [Github](https://github.com/yihui) | [Twitter](https://twitter.com/xieyihui)"
+    description = "brangpd's blog"
+    dateformat = "2006.01.02 15:04:05"
+    katex = true
+    author = "花落无声@brangpd"
+    commentrepo = "brangpd/repo-for-comment"
+
 
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
+      xhtml = true
+      hardWraps = true
+  [markup.tableOfContents]
+    endLevel = 3
+    ordered = false
+    startLevel = 1
+  [markup.highlight]
+    codeFences = true
+    lineNos = true
+    tabWidth = 2
