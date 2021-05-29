@@ -14,9 +14,6 @@ hasCJKLanguage = true
 summaryLength = 100
 pygmentsUseClasses = true
 
-[permalinks]
-    posts = "/posts/:year/:month/:day/:slug/"
-
 [[menu.main]]
     name = "主页"
     url = "/"
@@ -49,8 +46,8 @@ pygmentsUseClasses = true
     identifier = "subcribe"
 
 [permalinks]
-    post = "/post/:year/:month/:day/:slug/"
-    note = "/note/:year/:month/:day/:slug/"
+    posts = "/posts/:year/:month/:day/:slug/"
+    notes = "/notes/:year/:month/:day/:slug/"
 
 [[menu.main]]
     name = "Home"
