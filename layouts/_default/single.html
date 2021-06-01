@@ -14,20 +14,6 @@
     <section class="author">{{ . }}</section>
     {{ end }}
 
-    <section>创建:
-      <span class="date">
-        {{ .Page.PublishDate.Format .Site.Params.dateformat }}
-      </span>
-    </section>
-
-    {{ if .Page.Params.Lastmod }}
-    <section>修改:
-      <span class="date">
-        {{ .Page.Lastmod.Format .Site.Params.dateformat }}
-      </span>
-    </section>
-    {{ end }}
-
     <section>
       {{ if not (eq .Params.licence nil) }}
       {{ if .Params.licence }}
@@ -45,20 +31,6 @@
     </section>
 
   </header>
-  <!-- <div>
-      <div class="previous-article">
-        {{ with .PrevInSection }}
-        更早：<a href="{{.Permalink}}">{{.Title}}</a>
-        {{ end }}
-      </div>
-      <div class="next-article">
-        {{ with .NextInSection }}
-        更晚：<a href="{{.Permalink}}">{{.Title}}</a>
-        {{ end }}
-      </div>
-    </div> 
-    <br> -->
-  <!-- <hr> -->
 
   {{ if (.Params.Tags) }}
   <section>标签:
