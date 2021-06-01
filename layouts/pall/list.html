@@ -6,8 +6,9 @@
 
 
 <ul class="terms">
-  {{ range .Site.RegularPages }}<li>
-    <a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a> ({{.Date.Format .Site.Params.dateformat}})
+  {{ range (.Site.RegularPages.ByParam "id").Reverse }}<li>
+    <a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a> 
+    <!-- ({{.Date.Format .Site.Params.dateformat}}) -->
   </li>{{ end }}
 </ul>
 

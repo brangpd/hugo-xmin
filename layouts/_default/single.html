@@ -20,7 +20,7 @@
       </span>
     </section>
 
-    {{ if .GitInfo }}
+    {{ if .Page.Params.Lastmod }}
     <section>修改:
       <span class="date">
         {{ .Page.Lastmod.Format .Site.Params.dateformat }}
