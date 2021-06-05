@@ -7,7 +7,7 @@
 {{ $desc := .Scratch.Get "listpagesdesc" | default "" }}
 {{.Content}}
 {{ $paginator := .Paginate (where $pages "Section" "!=" "") }}
-{{ range $paginator.Pages.ByLastmod.Reverse }}
+{{ range $paginator.Pages }}
 <section class="list-block">
   <div class="list-title-line">
     <div style="float: right;">
