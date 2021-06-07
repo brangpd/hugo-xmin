@@ -80,3 +80,9 @@ document.addEventListener("DOMContentLoaded", function () {
     element.reload()
   }
 });
+
+function on_wyy_load_click(button) {
+  var wyyid = button.attributes.wyyid.value
+  var iframe = document.querySelector('iframe[wyyid="' + wyyid + '"]')
+  iframe.src = button.attributes.targeturl.value
+};

@@ -2,8 +2,6 @@
 {{ $desc := .Get 1 | default "" }}
 
 <div>
-  <audio controls preload="none"><source src="http://music.163.com/song/media/outer/url?id={{ $ID }}.mp3" type="audio/mpeg" /></audio>
+<input type="button" value="加载" wyyid="{{ $ID }}" onclick="on_wyy_load_click(this)" targeturl="https://music.163.com/outchain/player?type=2&id={{ $ID }}&auto=1&height=32"/> （网易云：<a href="https://music.163.com/#/song?id={{ $ID }}" target="_blank">{{ $ID }}</a>）
 </div>
-<div>
-  （网易云：<a href="https://music.163.com/#/song?id={{ $ID }}" target="_blank">{{$ID}}</a>）
-</div>
+<iframe wyyid="{{ $ID }}" frameborder="no" marginwidth="0" marginheight="0" width=800 height=52 src=""></iframe>

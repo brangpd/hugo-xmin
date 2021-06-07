@@ -4,6 +4,7 @@
 <h1 class="h0">{{$h0title}}</h1>
 
 {{ $pages := .Scratch.Get "listpages" }}
+{{ $pages = $pages.ByLastmod.Reverse }}
 {{ $desc := .Scratch.Get "listpagesdesc" | default "" }}
 {{.Content}}
 {{ $paginator := .Paginate (where $pages "Section" "!=" "") }}
