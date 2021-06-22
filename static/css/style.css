@@ -200,16 +200,21 @@ Use meaningless <i> to produce italic text instead.
 em {
   /* text-decoration: solid underline red !important; */
   color: var(--em-color);
-  font-style: inherit !important;
+  font-style: inherit;
 }
 /*
 Strong is rendered as bold text on default which is ambiguous and easily mistaken for headers.
 Use <b> to produce bold text instead.
 */
 strong {
-  font-weight: unset !important;
-  background-color: var(--strong-background-color) !important;
-  color: var(--strong-color) !important;
+  font-weight: unset;
+  background-color: var(--strong-background-color);
+  color: var(--strong-color);
+}
+em > strong {
+  font-weight: unset;
+  background-color: var(--strong-background-color);
+  color: var(--em-color);
 }
 del {
   text-decoration: line-through double;
