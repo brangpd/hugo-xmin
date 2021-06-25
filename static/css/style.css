@@ -9,7 +9,7 @@
   --main-h1-background-color: #ddfff2;
   --strong-background-color: #76ffa2;
   --strong-color: #000000;
-  --em-color: orangered;
+  --em-color: green;
   --code-font-size: 90%;
 }
 
@@ -199,8 +199,9 @@ Use meaningless <i> to produce italic text instead.
 */
 em {
   /* text-decoration: solid underline red !important; */
-  color: var(--em-color);
+  /* color: var(--em-color); */
   font-style: inherit;
+  text-decoration: solid underline var(--em-color);
 }
 /*
 Strong is rendered as bold text on default which is ambiguous and easily mistaken for headers.
@@ -214,7 +215,7 @@ strong {
 em > strong {
   font-weight: unset;
   background-color: var(--strong-background-color);
-  color: var(--em-color);
+  text-decoration: solid underline var(--em-color);
 }
 del {
   text-decoration: line-through double;
