@@ -7,9 +7,8 @@
   --a-color: #1e6460;
   --a-visited-color: #444444;
   --main-h1-background-color: #ddfff2;
-  --strong-background-color: gold;
-  --strong-color: #000000;
-  --em-color: gray;
+  --em-background-color: gold;
+  --em-text-color: black;
   --code-font-size: 90%;
 }
 
@@ -24,7 +23,6 @@
     --a-color: #3eff88;
     --a-visited-color: #999999;
     --main-h1-background-color: #303530;
-    --strong-color: #000000;
   }
 }
 
@@ -196,25 +194,16 @@ My posts are almost Chinese, so I apply the color to emphasize text.
 Use meaningless <i> to produce italic text instead.
 */
 em {
-  /* text-decoration: solid underline red !important; */
-  color: var(--em-color);
-  font-style: inherit;
-  /* text-decoration: solid underline var(--em-color); */
+  font-style: normal;
+  background-color: var(--em-background-color);
+  color: var(--em-text-color);
 }
 /*
 Strong is rendered as bold text on default which is ambiguous and easily mistaken for headers.
 Use <b> to produce bold text instead.
 */
 strong {
-  font-weight: unset;
-  background-color: var(--strong-background-color);
-  color: var(--strong-color);
-}
-em > strong {
-  font-weight: unset;
-  background-color: var(--strong-background-color);
-  color: var(--em-color);
-  /* text-decoration: solid underline var(--em-color); */
+  font-weight: 800;
 }
 del {
   text-decoration: line-through double;
