@@ -10,9 +10,7 @@
     <section class="subtitle">——{{ .Params.subtitle | markdownify }}</section>
     {{ end }}
 
-    {{ with .Params.author }}
-    <section class="author">{{ . }}</section>
-    {{ end }}
+    <section>({{ .Date.Format .Site.Params.dateformat }})</section>
 
     <section>
       {{ if not (eq .Params.licence nil) }}
