@@ -81,8 +81,10 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-function on_wyy_load_click(button) {
-  var wyyid = button.attributes.wyyid.value
+function on_wyy_load_click(summary) {
+  var wyyid = summary.attributes.wyyid.value
   var iframe = document.querySelector('iframe[wyyid="' + wyyid + '"]')
-  iframe.src = button.attributes.targeturl.value
+  if (!iframe.hasAttribute('src')) {
+    iframe.src = summary.attributes.targeturl.value
+  }
 };
